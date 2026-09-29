@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@gestionresidencial/auth-client':
+        specifier: ^0.3.1
+        version: 0.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next:
         specifier: 16.3.6
         version: 16.3.6(@types/node@22.10.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -35,6 +38,18 @@ packages:
 
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
+
+  '@gestionresidencial/auth-client@0.3.1':
+    resolution: {integrity: sha512-GwNc5QxIidb93U9O9fx9Xop/RaTkbaSv11DpOHAwOZ7xdy1TK3GFnrDVxKHZ777Csi/NzKg7eWVS8fzFAHvACQ==}
+    peerDependencies:
+      react: ^19.0.0
+      react-dom: ^19.0.0
+
+  '@gestionresidencial/shared-ui@0.2.1':
+    resolution: {integrity: sha512-1usYgvKnOyKO0DzaoIr16GG7WTevBSVW843ThJszbj0gmm5z8CHCnXT1PUXwAkynmu+Nf74GOHW8rrxSGLeJhg==}
+    peerDependencies:
+      react: ^19.0.0
+      react-dom: ^19.0.0
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -376,6 +391,17 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@gestionresidencial/auth-client@0.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@gestionresidencial/shared-ui': 0.2.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
+
+  '@gestionresidencial/shared-ui@0.2.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
 
   '@img/colour@1.1.0':
     optional: true

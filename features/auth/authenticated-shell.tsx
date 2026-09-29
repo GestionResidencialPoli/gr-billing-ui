@@ -4,12 +4,19 @@ import { useEffect, useState, type ReactNode } from "react";
 import { authUiLoginUrl, type Role } from "@gestionresidencial/auth-client";
 import { useAuth } from "./auth-provider";
 
-export function AuthenticatedShell({ children, requiredRole }: { children: ReactNode; requiredRole?: Role }) {
+export function AuthenticatedShell({
+  children,
+  requiredRole,
+}: {
+  children: ReactNode;
+  requiredRole?: Role;
+}) {
   const { user, loading, sessionError, logout } = useAuth();
   const [logoutError, setLogoutError] = useState(false);
 
   useEffect(() => {
-    if (!loading && !sessionError && !user) window.location.replace(authUiLoginUrl());
+    if (!loading && !sessionError && !user)
+      window.location.replace(authUiLoginUrl());
   }, [loading, sessionError, user]);
 
   async function signOut() {
@@ -23,11 +30,22 @@ export function AuthenticatedShell({ children, requiredRole }: { children: React
   }
 
   if (loading || (!sessionError && !user)) {
-    return <main><div className="empty">Comprobando tu sesión…</div></main>;
+    return (
+      <main>
+        <div className="empty">Comprobando tu sesión…</div>
+      </main>
+    );
   }
 
   if (sessionError) {
-    return <main><div className="error">No pudimos verificar tu sesión. Comprueba que el gateway esté disponible e inténtalo de nuevo.</div></main>;
+    return (
+      <main>
+        <div className="error">
+          No pudimos verificar tu sesión. Comprueba que el gateway esté
+          disponible e inténtalo de nuevo.
+        </div>
+      </main>
+    );
   }
 
   const hasAccess = !requiredRole || user!.roles.includes(requiredRole);
@@ -37,12 +55,30 @@ export function AuthenticatedShell({ children, requiredRole }: { children: React
       <header>
         <span className="brand">Gestión Residencial / Finanzas</span>
         <nav className="billing-nav" aria-label="Navegación financiera">
-          <span className="role">ADMINISTRACIÓN</span>
-          <button type="button" onClick={signOut}>Cerrar sesión</button>
+          <span className="role">
+            {user!.roles.includes("ADMINISTRACION")
+              ? "ADMINISTRACIÓN"
+              : "PROPIETARIO"}
+          </span>
+          <button type="button" onClick={signOut}>
+            Cerrar sesión
+          </button>
         </nav>
       </header>
-      {logoutError && <div className="error billing-error">No se pudo cerrar sesión. Inténtalo de nuevo.</div>}
-      {hasAccess ? children : <main><div className="error">No tienes permisos para consultar este módulo.</div></main>}
+      {logoutError && (
+        <div className="error billing-error">
+          No se pudo cerrar sesión. Inténtalo de nuevo.
+        </div>
+      )}
+      {hasAccess ? (
+        children
+      ) : (
+        <main>
+          <div className="error">
+            No tienes permisos para consultar este módulo.
+          </div>
+        </main>
+      )}
     </>
   );
 }

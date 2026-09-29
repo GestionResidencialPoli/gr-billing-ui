@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { authUiLoginUrl, type Role } from "@gestionresidencial/auth-client";
+import { authUiLoginUrl, type AppUser, type Role } from "@gestionresidencial/auth-client";
 import { useAuth } from "./auth-provider";
+
+function roleLabelFor(user: AppUser): string {
+  if (user.roles.includes("ADMINISTRACION")) return "ADMINISTRACIÓN";
+  if (user.roles.includes("RESIDENTE")) return user.apartment?.tipoResidente ?? "RESIDENTE";
+  if (user.roles.includes("VIGILANTE")) return "VIGILANTE";
+  return "USUARIO";
+}
 
 export function AuthenticatedShell({
   children,
@@ -56,9 +63,7 @@ export function AuthenticatedShell({
         <span className="brand">Gestión Residencial / Finanzas</span>
         <nav className="billing-nav" aria-label="Navegación financiera">
           <span className="role">
-            {user!.roles.includes("ADMINISTRACION")
-              ? "ADMINISTRACIÓN"
-              : "PROPIETARIO"}
+            {roleLabelFor(user!)}
           </span>
           <button type="button" onClick={signOut}>
             Cerrar sesión

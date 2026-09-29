@@ -1,5 +1,6 @@
 allowBuilds:
   sharp: set this to true or false
+  unrs-resolver: false
 minimumReleaseAgeExclude:
   - '@gestionresidencial/auth-client@0.3.1'
   - '@gestionresidencial/shared-ui@0.2.1'

@@ -2,6 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@gestionresidencial/auth-client";
+import { Feedback } from "@gestionresidencial/shared-ui";
 import {
   errorMessage,
   hasBalance,
@@ -81,11 +82,7 @@ export function ResidentDashboard() {
           Cargando tu cuenta…
         </p>
       )}
-      {error && (
-        <p className="error" role="alert">
-          {error}
-        </p>
-      )}
+      {error && <Feedback error>{error}</Feedback>}
       {notice && (
         <p className="notice" role="status">
           {notice}

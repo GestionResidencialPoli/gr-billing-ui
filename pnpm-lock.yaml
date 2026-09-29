@@ -110,11 +110,11 @@ importers:
   .:
     dependencies:
       '@gestionresidencial/auth-client':
-        specifier: ^0.4.0
-        version: 0.4.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^0.4.1
+        version: 0.4.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@gestionresidencial/shared-ui':
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^0.3.1
+        version: 0.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next:
         specifier: 16.3.6
         version: 16.3.6(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@22.10.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -269,14 +269,14 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@gestionresidencial/auth-client@0.4.0':
-    resolution: {integrity: sha512-FuLjTNZBWIZN9HMVMRoBVGcE0Ba0Cd1LYhD2Xk9LLFtSgkjZwamVyrJb2eqlSyOx9nbSoQC7/YtWCTz3+IG0Jw==}
+  '@gestionresidencial/auth-client@0.4.1':
+    resolution: {integrity: sha512-4PYkENUh6wcJdz5LVOlyitFNzm63JUPTM6k2inexB6ODb+yTzl8HOjo1M7Tcui2azdlR8JH7RHqihV6Lj9yVHA==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  '@gestionresidencial/shared-ui@0.3.0':
-    resolution: {integrity: sha512-HL+b9UbEkYF9WaQvST+JS8/AaqcW3VUubKJWCYMYkujGn/50J9+mB5GLV2qwWaJoulUG0i2/9SeyhZhxBsCBXA==}
+  '@gestionresidencial/shared-ui@0.3.1':
+    resolution: {integrity: sha512-tmxdMeNX85Gq+Xz18apmQS25fXESFmUdZ1ejLayWrWntg2IvFes8zrrFkPI1wLqC9dNxQaxtEGJHptidIg9i9g==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -2098,13 +2098,13 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@gestionresidencial/auth-client@0.4.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@gestionresidencial/auth-client@0.4.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@gestionresidencial/shared-ui': 0.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@gestionresidencial/shared-ui': 0.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@gestionresidencial/shared-ui@0.3.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@gestionresidencial/shared-ui@0.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)

@@ -1,0 +1,7 @@
+@import "@gestionresidencial/shared-ui/styles.css";
+
+.standalone-state {
+  max-width: 650px;
+  margin: 12vh auto;
+  padding: 24px;
+}

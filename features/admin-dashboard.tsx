@@ -189,7 +189,7 @@ export function AdminDashboard() {
   const today = new Date().toISOString().slice(0, 10);
   const period = today.slice(0, 7);
   return (
-    <main>
+    <div className="billing">
       <section className="intro">
         <p className="eyebrow">Administración</p>
         <h1>Finanzas de la comunidad</h1>
@@ -426,6 +426,6 @@ export function AdminDashboard() {
           </article>
         ))}
       </section>
-    </main>
+    </div>
   );
 }

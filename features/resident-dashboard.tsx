@@ -66,7 +66,7 @@ export function ResidentDashboard() {
   }
 
   return (
-    <main>
+    <div className="billing">
       <section className="intro">
         <p className="eyebrow">Propietario</p>
         <h1>Tu estado de cuenta</h1>
@@ -226,6 +226,6 @@ export function ResidentDashboard() {
           ))}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

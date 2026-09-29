@@ -1,3 +1,4 @@
+import "./globals.css";
 import "./styles.css";
 import "./finance.css";
 import { AuthProvider } from "@/features/auth/auth-provider";

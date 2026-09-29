@@ -6,7 +6,8 @@ import { useAuth } from "./auth-provider";
 
 function roleLabelFor(user: AppUser): string {
   if (user.roles.includes("ADMINISTRACION")) return "ADMINISTRACIÓN";
-  if (user.roles.includes("RESIDENTE")) return user.apartment?.tipoResidente ?? "RESIDENTE";
+  if (user.apartment?.tipoResidente) return user.apartment.tipoResidente;
+  if (user.roles.includes("RESIDENTE")) return "RESIDENTE";
   if (user.roles.includes("VIGILANTE")) return "VIGILANTE";
   return "USUARIO";
 }

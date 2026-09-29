@@ -9,6 +9,7 @@ import {
   type Proof,
   type Statement,
 } from "./finance-api";
+import { colombiaDaysAgo, colombiaToday } from "./periods";
 
 export function ResidentDashboard() {
   const [statement, setStatement] = useState<Statement | null>(null);
@@ -184,7 +185,8 @@ export function ResidentDashboard() {
               <input
                 name="fechaTransferencia"
                 type="date"
-                max={new Date().toISOString().slice(0, 10)}
+                min={colombiaDaysAgo(30)}
+                max={colombiaToday()}
                 required
               />
             </label>

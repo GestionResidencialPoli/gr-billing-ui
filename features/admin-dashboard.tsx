@@ -9,6 +9,7 @@ import {
   type Portfolio,
   type Proof,
 } from "./finance-api";
+import { colombiaToday, periodOptions } from "./periods";
 
 type Parameter = {
   id: number;
@@ -79,7 +80,7 @@ export function AdminDashboard() {
           base_value: data.get("baseValue"),
           monthly_late_rate: data.get("monthlyLateRate"),
           due_days: Number(data.get("dueDays")),
-          effective_from: data.get("effectiveFrom"),
+          effective_from: `${data.get("effectiveFrom")}-01`,
         },
       });
       form.reset();
@@ -186,8 +187,10 @@ export function AdminDashboard() {
     });
   }
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = colombiaToday();
   const period = today.slice(0, 7);
+  const pastPeriods = periodOptions(24);
+  const validityPeriods = periodOptions(12, 12);
   return (
     <div className="billing">
       <section className="intro">
@@ -297,7 +300,13 @@ export function AdminDashboard() {
             </label>
             <label>
               Vigente desde
-              <input name="effectiveFrom" type="date" required />
+              <select name="effectiveFrom" defaultValue={period} required>
+                {validityPeriods.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
             <button disabled={busy}>Guardar parámetros</button>
           </form>
@@ -307,14 +316,26 @@ export function AdminDashboard() {
           <form onSubmit={generate}>
             <label>
               Período de cobro
-              <input name="periodo" type="month" max={period} required />
+              <select name="periodo" defaultValue={period} required>
+                {pastPeriods.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
             <button disabled={busy}>Generar cobros</button>
           </form>
           <form onSubmit={applyInterest}>
             <label>
               Período de interés
-              <input name="periodo" type="month" max={period} required />
+              <select name="periodo" defaultValue={period} required>
+                {pastPeriods.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
             <button disabled={busy}>Aplicar intereses</button>
           </form>
@@ -343,7 +364,13 @@ export function AdminDashboard() {
             </label>
             <label>
               Fecha de pago
-              <input name="fechaPago" type="date" max={today} required />
+              <input
+                name="fechaPago"
+                type="date"
+                min={`${pastPeriods[pastPeriods.length - 1].value}-01`}
+                max={today}
+                required
+              />
             </label>
             <label>
               Medio

@@ -117,24 +117,24 @@ export function ResidentDashboard() {
               <p>Aún no hay cobros registrados.</p>
             ) : (
               <div className="table-scroll">
-                <table>
+                <table role="table">
                   <thead>
                     <tr>
-                      <th>Período</th>
-                      <th>Capital</th>
-                      <th>Intereses pendientes</th>
-                      <th>Pendiente</th>
-                      <th>Recibo</th>
+                      <th scope="col">Período</th>
+                      <th scope="col">Capital</th>
+                      <th scope="col">Intereses pendientes</th>
+                      <th scope="col">Pendiente</th>
+                      <th scope="col">Recibo</th>
                     </tr>
                   </thead>
                   <tbody>
                     {statement.cobros.map((charge) => (
                       <tr key={charge.id}>
-                        <td>{charge.periodo}</td>
-                        <td>{moneyCOP(charge.capital)}</td>
-                        <td>{moneyCOP(charge.intereses)}</td>
-                        <td>{moneyCOP(charge.pendiente)}</td>
-                        <td>
+                        <td data-label="Período">{charge.periodo}</td>
+                        <td data-label="Capital">{moneyCOP(charge.capital)}</td>
+                        <td data-label="Intereses pendientes">{moneyCOP(charge.intereses)}</td>
+                        <td data-label="Pendiente">{moneyCOP(charge.pendiente)}</td>
+                        <td data-label="Recibo">
                           {hasBalance(charge.pendiente) ? (
                             "Pendiente"
                           ) : (

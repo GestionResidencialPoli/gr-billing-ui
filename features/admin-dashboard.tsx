@@ -231,24 +231,24 @@ export function AdminDashboard() {
         )}
         {portfolio && portfolio.apartamentos.length > 0 && (
           <div className="table-scroll">
-            <table>
+            <table role="table">
               <thead>
                 <tr>
-                  <th>Unidad</th>
-                  <th>Pendiente</th>
-                  <th>Vencido</th>
-                  <th>Estado</th>
+                  <th scope="col">Unidad</th>
+                  <th scope="col">Pendiente</th>
+                  <th scope="col">Vencido</th>
+                  <th scope="col">Estado</th>
                 </tr>
               </thead>
               <tbody>
                 {portfolio.apartamentos.map((row) => (
                   <tr key={row.apartamentoId}>
-                    <td>
+                    <td data-label="Unidad">
                       {row.torre} - {row.numero}
                     </td>
-                    <td>{moneyCOP(row.pendiente)}</td>
-                    <td>{moneyCOP(row.vencido)}</td>
-                    <td>
+                    <td data-label="Pendiente">{moneyCOP(row.pendiente)}</td>
+                    <td data-label="Vencido">{moneyCOP(row.vencido)}</td>
+                    <td data-label="Estado">
                       <span
                         className={
                           hasBalance(row.vencido) ? "badge danger" : "badge ok"

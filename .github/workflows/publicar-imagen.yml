@@ -2,7 +2,7 @@ name: Publicar imagen
 
 # Construye la imagen de produccion, la publica en GHCR y avisa a Jenkins para
 # desplegarla en k3s. Solo desde main (estado liberado del flujo del equipo).
-# Las URLs publicas se incrustan en el build: Next.js las lee al compilar.
+# Las URLs publicas (NEXT_PUBLIC_*) las agrega build-push.yml con public-urls: Next.js las incrusta al compilar.
 on:
   push:
     branches: [main]
@@ -19,6 +19,7 @@ jobs:
     with:
       service-name: gr-billing-ui
       compose-service: billing-ui
+      public-urls: true
       build-args: |
             BACKEND_API_URL=http://gateway:4000
     secrets:
